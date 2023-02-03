@@ -1,11 +1,14 @@
+const catalog = []
 
 
 
 
 
-const routerValue = [{'test':'test'}]
 
 
 
 
-module.exports = routerValue 
+
+module.exports = catalog
+
+

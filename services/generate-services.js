@@ -1,11 +1,12 @@
-const value = require('../data/data');
+const catalog = require('../data/data');
+
 
 
 
 
 
 const generateCatalog = (req, res) => {
-return res.status(200).json(value)
+return res.status(200).json(catalog)
 }
 
 
