@@ -4,7 +4,7 @@
   "description": "# Desenvolvido com Express e MongoDB .",
   "main": "app.js",
   "scripts": {
-    "test": "nodemon"
+    "nodemon": "nodemon"
   },
   "repository": {
     "type": "git",

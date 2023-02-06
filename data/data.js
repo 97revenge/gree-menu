@@ -1,4 +1,8 @@
-const catalog = []
+const catalog = [{
+  
+
+
+}]
 
 
 
