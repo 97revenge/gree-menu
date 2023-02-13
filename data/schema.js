@@ -1,18 +1,14 @@
-const { default: mongoose } = require("mongoose");
+const { Schema, model } = require("mongoose");
+const { v4: uuidv4 } = require('uuid');
 
-const catalogSchema = new mongoose.Schema({
-  catalogName: String , 
-  catalogInit: String , 
-  catalogMid: String , 
-  catalogLow: String , 
+const catalogDB = new Schema({
+  catalogName: String,
+  catalogInit: String,
+  catalogMid: String,
+  catalogLow: String,
+
 })
-
-const testingValue = new catalogSchema({
-  catalogName:'Bebidas' , 
-  catalogInit:'1',
-  catalogMid: '2', 
-  catalogLow: '3'
-})
+const catalog = model('catalogDB', catalogDB)
 
 
-module.exports = {catalogSchema , testingValue}
+module.exports = catalog

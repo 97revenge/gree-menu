@@ -2,21 +2,26 @@
 const express = require('express');
 const app = express();
 const router = require('./routes/routes');
-const port = 5555;
-const generateCatalog = require('./services/generate-services');
+const port = 7777;
+const Loaders = require('./loaders/index');
+
+
+Loaders.start();
+
+
+app.use(express.json())
 app.use(router);
 
-app.get('/', generateCatalog, (req, res,) => {
-  res.send('tanto faz');
+
+
+app.get('/', (req, res) => {
+  res.send('ok')
 })
 
 
 
-app.use(router);
 
-app.get('/', (res, req) => {
-  req.send('ok');
-});
+
 
 
 
