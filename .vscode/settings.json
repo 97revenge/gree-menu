@@ -1,7 +1,7 @@
 {
 
-  "editor.fontSize": 12,
-  "editor.lineHeight": 15,
+  "editor.fontSize": 20,
+  "editor.lineHeight": 25,
   "javascript.suggest.autoImports": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.minimap.enabled": false,
