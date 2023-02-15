@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const uri = require('../loaders/uri');
 
 mongoose.set('strictQuery', false);
 

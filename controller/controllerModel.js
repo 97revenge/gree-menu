@@ -1,53 +1,62 @@
 const catalog = require('../data/schema');
 
-
-
-
-
-
-
-
-
-
 // CRUD 
-const create = async (req, res) => {
+const create = async (req, res) => { /* 🆗  */
+  try {
+    const createModel = await catalog.create(req.body)
+    createModel.emoji // new implementation . 
+    res.status(201).json({ message: "created !!!" })
+  } catch (err) {
+    res.status(404).json(err)
+  }
+}
 
-  const createdModel = await catalog.create(req.body);
+
+const readForId = async (req, res) => {
+  const { id } = req.params
+  const productId = await catalog.findById(id)
 
   try {
-    res.status(201).json({ catalog: createdModel });
+    res.status(200).find(id);
   } catch (err) {
-    res.status(404).json({ err })
-  }
+    res.status(404).json({ message: "404 not found" })
 
+  }
 }
+
 const read = async (req, res) => {
-  const readModel = await catalog.find(req.body);
-try{
-    res.status(200).json({catalog:readModel})
-}catch(err){
-  res.status(404).json({err:"error 404"})
+  try {
+    const readModel = await catalog.find(req.body);
+    res.status(200).json({ catalog: readModel })
+  } catch (err) {
+    res.status(404).json(err)
+  }
 }
-}
+
 const update = async (req, res) => {
-  const updateModel = await catalog.findByIdAndUpdate(req.body);
-  try{
-    res.status(200).json({catalog:updateModel})
-  }catch(err){
-    res.status(404).json({err:"error 404"})
+  const {id} = req.params
+  try {
+  const updateModel = await catalog.findByIdAndUpdate(id , req.body);
+
+  if(!updateModel){
+    res.status(404).json({message:'not found'})
   }
 
+    res.status(200).json({ message:"update !!!" })
+  } catch (err) {
+    res.status(404).json(err)
+  }
 }
+
 const destroy = async (req, res) => {
-  const destroyModel = await catalog.remove(req.body);
 
-try{
-  res.status(200).json({catalog:destroyModel})
-}catch(err){
-  res.status(404).json({err:"error 404"})
-
+  // code here 
 }
 
-}
 
-module.exports = { create, read, update, destroy } 
+
+
+
+// id CRUD 
+
+module.exports = { create, read, readForId, update, destroy } 
