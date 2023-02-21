@@ -4,7 +4,7 @@ const app = express();
 const router = require('./routes/routes');
 const port = 7777;
 const Loaders = require('./loaders/index');
-const dotEnv = require('dotenv').config();
+require('dotenv').config();
 
 
 

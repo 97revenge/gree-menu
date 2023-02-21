@@ -1,5 +1,4 @@
 const { Schema, model } = require("mongoose");
-const { v4: uuidv4 } = require('uuid');
 
 
 
@@ -14,10 +13,9 @@ const catalogDB = new Schema({
 
 
 
-catalogDB.virtual("emoji", (obj) => { }).get(() => {
+catalogDB.virtual("emoji", () => { }).get(() => {
   typeof this.catalogName == "string" ? this.catalogName.concat("☀") : "not a compatible name."
 })
-
 const catalog = model('catalogDB', catalogDB)
 
 
