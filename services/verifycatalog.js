@@ -3,10 +3,13 @@ const catalog = require('../data/schema');
 
 const verifyCatalog = async (req, res) => {
   const {catalogName} = req.body;
-  const catalogCheck = await catalog.findOne({catalogName}) 
+  const catalogCheck = await catalog.findOne(catalogName) 
   if(catalogCheck) {
-    res.status(404).json({message:"This item has already been created . try another"}); 
+  return res.status(404).json({message:"This item has already been created . try another"}); 
   }
+
+  
+  
 }
 
 
