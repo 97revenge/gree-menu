@@ -21,9 +21,12 @@ router.all(createInstanceUrl, create);
 router.all(menuInstanceUrl, read);
 // catalog in document. 
 
-router.all(createInstanceUrl || menuInstanceUrl, destroy)
-router.all(createInstanceUrl || menuInstanceUrl, update)
+router.all( menuInstanceUrl, destroy)
+router.all( menuInstanceUrl, update)
+
 // delete and update based on id.
+router.all('/menu/:id' , update)
+router.all('/menu/:id' , destroy)
 
 
 router.all('/menu/:id', readForId) // id of each catalog . 

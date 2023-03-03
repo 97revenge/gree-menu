@@ -1,14 +1,12 @@
 const catalog = require('../data/schema');
-const catalogModel = require('../data/updated-schema');
-const verify = require('../services/verifycatalog');
+const verifyCatalog = require('../services/verifycatalog');
 // CRUD 
 const create = async (req, res) => {
-  verify
+  verifyCatalog
+  const { catalogName } = req.body
   try {
-    const createModel = await catalogModel.create(req.body)
-
-    createModel.emoji // new implementation . 
-    res.status(201).json({ message: "created !!!" })
+    const createModel = await catalog.create(req.body)
+    res.status(201).json({ createModel: "created !!!" })
   } catch (err) {
     res.status(404).json(err)
   }
@@ -16,20 +14,19 @@ const create = async (req, res) => {
 
 
 const readForId = async (req, res) => {
-  const { id } = req.params
-  const productId = await catalogModel.findById(id)
-
   try {
-    res.status(200).json({message:productId});
+    const { id } = req.params
+    const productId = await catalog.findById(id);
+    res.status(200).json({   catalog: productId });
   } catch (err) {
-    res.status(404).json({ message: "404 not found" })
+    res.status(404).json({ message: "404 not found" });
 
   }
 }
 
 const read = async (req, res) => {
   try {
-    const readModel = await catalogModel.find(req.body);
+    const readModel = await catalog.find(req.body);
     res.status(200).json({ catalog: readModel })
   } catch (err) {
     res.status(404).json(err)
@@ -37,33 +34,25 @@ const read = async (req, res) => {
 }
 
 const update = async (req, res) => {
-  const { id } = req.params
-  try {
-    const updateModel = await catalogModel.findByIdAndUpdate(id, req.body);
+ try{
+  const {id} = req.params;
+  const updatedModel = await catalog.findByIdAndUpdate(id, req.body); 
 
-    if (!updateModel) {
-      res.status(404).json({ message: 'not found' })
-    }
-
-    res.status(200).json({ message: "update !!!" })
-  } catch (err) {
-    res.status(404).json(err)
-  }
+  return res.status(200).json({message:updatedModel})
+ }catch(err){
+  res.status(404).json({message:err});
+ }
 }
 
 const destroy = async (req, res) => {
-  const { id } = req.params; 
-  const destroyModel = await catalogModel.findByIdAndDelete(id); 
   try {
-    res.status(200).json({message:"deleted !!!"} , destroyModel )
+    const { id } = req.params;
+    const destroyModel = await catalog.findByIdAndDelete(id);
+    res.status(200).json({ message: "deleted !!!" }, destroyModel)
   } catch (err) {
-    res.status(404).json(err); 
+    res.status(404).json(err);
   }
-  
-}
 
-const updateDestroy = async () => {
-  const destroyedModel = await catalogModel.find(req.body)
 }
 
 
