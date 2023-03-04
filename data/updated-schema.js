@@ -1,22 +1,24 @@
 const { Schema, model } = require("mongoose");
 
-
 const catalogNewSet = new Schema({
-  catalogName: String,
-  nested: {
-    catalogInit: String,
-    catalogMid: String,
-    catalogLow: String,
+  catalogName: {
+    type: String,
+    required: true,
   },
-  premiumItens: {
-    additionaInitilItem: {type: String},
-    additionalMidItem: {type: String},
-    additionalLowItem: {type: String}
-  }
-})
+  itemLow: {
+    type: String,
+    required: true,
+  },
+  Lanches: {
+    type: String,
+    required: true,
+  },
+  outros: {
+    type: String,
+    required: true,
+  },
+});
 
+const catalogModel = model("catalog", catalogNewSet);
 
-
-const catalogModel = model("catalog", catalogNewSet)
-
-module.exports = catalogModel;  
+module.exports = catalogModel;
