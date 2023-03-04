@@ -7,7 +7,6 @@ const create = async (req, res) => {
     if (catalogDuplicated) {
       res.status(404).json({ message: "this catalog already exists" });
     }
-
     if (!catalogName) {
       res.status(404).json({ message: "the title of catalog is required" });
     }
