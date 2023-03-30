@@ -1,13 +1,24 @@
 {
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+    "typescript": "tsx"
+  },
   "files.associations": {
     "*.jsx": "javascriptreact",
     "*.js": "javascript",
+    "*.tsx": "typescriptreact",
     "*.ts": "typescript"
   },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
   "emmet.showSuggestionsAsSnippets": true,
+  "emmet.preferences": { "css.color.short": true },
   "window.commandCenter": true,
-  "editor.fontSize": 32,
-  "editor.lineHeight": 40,
+  "editor.fontSize": 20,
+  "editor.lineHeight": 25,
   "editor.acceptSuggestionOnCommitCharacter": true,
   "editor.accessibilityPageSize": 15,
   "terminal.integrated.fontFamily": "",
@@ -21,5 +32,8 @@
   "javascript.suggest.autoImports": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.minimap.enabled": false,
-  "workbench.iconTheme": "Monokai Classic Icons"
+  "editor.renderLineHighlight": "gutter",
+  "workbench.iconTheme": "eq-material-theme-icons-darker",
+  "workbench.colorTheme": "Monokai Pro",
+  "terminal.integrated.defaultProfile.windows": "Git Bash"
 }
