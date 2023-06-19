@@ -5,7 +5,15 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon",
-    "build": "node app.js"
+    "build": "node app.js",
+    "watch": "jest --watch"
+  },
+  "ntl": {
+    "descriptions": {
+      "dev": "tests with Postman and Mongoose Atlas",
+      "build": "Run test outputing code coverage",
+      "watch": "Run Jest in watch mode (foward)"
+    }
   },
   "repository": {
     "type": "git",
@@ -23,6 +31,9 @@
     "mongoose": "^6.9.0"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^4.1.7",
+    "dotenv": "^16.0.3",
+    "jest": "^29.4.3",
     "nodemon": "^2.0.20"
   }
 }
